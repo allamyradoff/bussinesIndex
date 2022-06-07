@@ -28,6 +28,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.2.30']
 
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_CONFIGS = {
+    'default':
+        {
+            'autoParagraph': False,
+            'toolbar': 'basic',
+            'allowedContent': True,
+        },
+}
+
 
 # Application definition
 
@@ -41,6 +51,7 @@ INSTALLED_APPS = [
     "corsheaders",
     'rest_framework',
     'main',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

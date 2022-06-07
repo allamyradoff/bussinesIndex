@@ -1,6 +1,5 @@
-import re
 from django.db import models
-
+from ckeditor.fields import RichTextField
 
 
 
@@ -68,7 +67,7 @@ class Company(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return str(self.title)
+        return self.title
 
     class Meta:
         ordering = ['created_at']
@@ -76,7 +75,7 @@ class Company(models.Model):
 class Post(models.Model):
     image = models.ImageField(
         upload_to="companies_posts_image/", null=True, blank=True)
-    title = models.CharField(max_length=25, null=True, blank=True)
+    title = RichTextField(null=True, blank=True)
     company = models.ForeignKey(Company, on_delete=models.SET_NULL, null=True, blank=True, related_name="posts_company")
 
     def __str__(self):
